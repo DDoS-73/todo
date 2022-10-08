@@ -1,0 +1,27 @@
+.wrapper {
+  border: 1px solid var(--border-col);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 50px 1fr 75px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--primary-dark);
+}
+
+.completed {
+  color: var(--primary-grey);
+  text-decoration: line-through;
+}
+
+.icons img:first-child {
+  margin-right: 25px;
+}
+
+.icons img:hover {
+  cursor: pointer;
+}

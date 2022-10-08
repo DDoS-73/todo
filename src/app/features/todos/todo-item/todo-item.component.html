@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <div class="container">
+    <input #ref type="checkbox" (change)="changeStatus()" [checked]="todo.completed">
+    <span class="checkmark"></span>
+  </div>
+  <span [class.completed]="ref.checked" class="title">{{ todo.title }}</span>
+  <div class="icons">
+    <img (click)="editTodo()" src="./assets/edit.svg" alt="edit">
+    <img (click)="deleteTodo()" src="./assets/delete.svg" alt="delete">
+  </div>
+</div>

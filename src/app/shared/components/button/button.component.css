@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 18px;
+  color: #FFF;
+  padding: 14px;
+  background: linear-gradient(90deg, rgba(56,239,125,1) 0%, rgba(30,163,155,1) 100%)
+}
+
+.btnText {
+  margin: 0 auto;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+}
+
+.arrow img {
+  width: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button[disabled] {
+  background: #D0D0D0;
+}

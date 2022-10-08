@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Create Account</h1>
+  <p>Let’s get productive together!</p>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="user-info_grid-container">
+      <app-input controlName="name" label="Full Name *" placeholder="Josh Perez"></app-input>
+      <app-input controlName="username" label="Username *" placeholder="joshp54"></app-input>
+      <div>
+        <app-input
+          [class.warning-input]="email?.invalid && (email?.dirty || email?.touched)"
+          controlName="email"
+          label="Email *"
+          placeholder="joshperez54gmail.com"
+        ></app-input>
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <span class="warning-text">Please enter a valid email address</span>
+        </div>
+      </div>
+      <div>
+        <app-input
+          [class.warning-input]="phone?.invalid && (phone?.dirty || phone?.touched)"
+          controlName="phone"
+          label="Phone number *"
+          placeholder="+380971234567"
+        ></app-input>
+        <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+          <span class="warning-text">Please enter a valid phone number</span>
+        </div>
+      </div>
+    </div>
+    <div class="address-info_grid-container" formGroupName="address">
+      <app-input controlName="street" label="Address line *" placeholder="4954 Canis Heights Drive" id="item-0"></app-input>
+      <app-input controlName="suite" label="Suite" placeholder="90013"></app-input>
+      <app-input controlName="city" label="City *" placeholder="Los Angeles" id="item-1"></app-input>
+      <app-input controlName="zipcode" label="ZIP Code *" placeholder="90013" id="item-2"></app-input>
+    </div>
+    <app-button [btnDisabled]="registrationForm.invalid">
+      Create Account
+      <img img src="./assets/arrow.svg" alt="arrow">
+    </app-button>
+  </form>
+</div>

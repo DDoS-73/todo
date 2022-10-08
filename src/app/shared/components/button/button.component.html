@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <button [disabled]="btnDisabled" [style]="styles" type="submit">
+    <span class="btnText">
+      <ng-content></ng-content>
+    </span>
+    <span class="arrow">
+      <ng-content select="[img]"></ng-content>
+    </span>
+  </button>
+</div>

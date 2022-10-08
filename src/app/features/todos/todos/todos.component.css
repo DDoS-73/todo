@@ -1,0 +1,45 @@
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+.btn {
+  width: 150px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  cursor: pointer;
+}
+
+textarea {
+  margin-top: 40px;
+  border-radius: 6px;
+  border: 1px solid var(--border-col);
+  width: 400px;
+  height: 65px;
+  padding: 8px 14px;
+  margin-bottom: 40px;
+}
+
+.delete-info {
+  width: 400px;
+  margin: 20px 0 40px;
+  line-height: 28px;
+}
+
+.delete-info + p {
+  margin-bottom: 40px;
+}
+
+.errorMsg {
+  margin-bottom: 40px;
+  margin-top: -35px;
+}

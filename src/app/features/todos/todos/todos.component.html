@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="flex-wrapper">
+    <h1>All ToDo’s</h1>
+    <div class="btn">
+      <app-button (click)="openModal('addTodoModal')" [styles]="addBtnStyles">
+        Add a ToDo
+        <img img src="./assets/add.svg" alt="add">
+      </app-button>
+    </div>
+  </div>
+  <app-todo-item
+    *ngFor="let todo of todos$ | async; trackBy: trackByID"
+    [todo]="todo"
+    (changeTodoStatus)="changeTodoStatus($event)"
+    (deleteClick)="todoHandler($event, 'deleteTodoModal')"
+    (editClick)="todoHandler($event, 'editTodoModal')"
+  ></app-todo-item>
+</div>
+
+<app-modal id="addTodoModal">
+  <span class="close-btn" (click)="closeModal('addTodoModal')">
+    <img src="./assets/Close.svg" alt="close">
+  </span>
+  <h2>Add a ToDo</h2>
+  <textarea placeholder="Start typing ..." [(ngModel)]="title"></textarea>
+  <app-button (click)="addTodo(); closeModal('addTodoModal')" [btnDisabled]="isDisabled">
+    Save ToDo
+    <img img src="./assets/arrow.svg" alt="arrow">
+  </app-button>
+</app-modal>
+
+<app-modal id="deleteTodoModal">
+  <span class="close-btn" (click)="closeModal('deleteTodoModal')">
+    <img src="./assets/Close.svg" alt="close">
+  </span>
+  <h2>Removing a ToDo</h2>
+  <p class="delete-info">Are you sure you want to remove this ToDo? It would be impossible to restore it afterwards</p>
+  <p><i>{{title}}</i></p>
+  <app-button [styles]="deleteBtnStyles" (click)="deleteTodo(); closeModal('deleteTodoModal')">
+    Yes, Remove ToDo
+  </app-button>
+</app-modal>
+
+<app-modal id="editTodoModal">
+  <span class="close-btn" (click)="closeModal('editTodoModal')">
+    <img src="./assets/Close.svg" alt="close">
+  </span>
+  <h2>Edit a ToDo</h2>
+  <textarea placeholder="Start typing ..." [(ngModel)]="title"></textarea>
+  <p *ngIf="showEditError" class="errorMsg">This field is required</p>
+  <app-button (click)="editTodo();">
+    Save ToDo
+    <img img src="./assets/arrow.svg" alt="arrow">
+  </app-button>
+</app-modal>
