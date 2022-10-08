@@ -29,8 +29,7 @@ import { ModalModule } from "./features/modal/modal.module";
       maxAge: 25,
       logOnly: environment.production,
       autoPause: true,
-    }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
